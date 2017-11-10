@@ -5,6 +5,11 @@
  	
  	function index()
  	{
+ 		header("location: halaman/login");
+ 	}
+
+ 	function login()
+ 	{
  		$this->load->view("login");
  	}
 
@@ -31,6 +36,16 @@
  	function select()
  	{
  		$this->load->view("select");
+ 	}
+
+ 	function admin()
+ 	{
+ 		$this->load->view("admin");
+ 	}
+
+ 	function test()
+ 	{
+ 		$this->load->view("test");
  	}
 
  }

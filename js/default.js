@@ -19,6 +19,9 @@ $(document).ready(function(){
 
 	//untuk menampilkan tanggal dengan datepicker
 	$(".datepicker").datepicker({
-		dateFormat: "dd-mm-yy"
+		dateFormat: "dd-MM-yy",
+		changeMonth: true,
+		changeYear: true,
+		yearRange: "-20y:c"
 	});
 })
