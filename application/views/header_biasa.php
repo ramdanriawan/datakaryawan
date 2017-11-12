@@ -23,8 +23,7 @@
             color: black;
         }
     </style>
-    <link rel="icon" type="image/png" sizes="16x16" href="../plugins/images/favicon.png">
-    <title>Ample Admin Template - The Ultimate Multipurpose admin template</title>
+    <title><?php echo ucwords(str_replace("_", " ", $this->uri->segment(2))); ?></title>
     <script src="../jquery-ui/external/jquery/jquery.js"></script>
     <script src="../js/script.php"></script>
     <script src="../jquery-ui/jquery-ui.min.js"></script>

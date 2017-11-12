@@ -1,6 +1,6 @@
 <?php 
 
- if(!isset($_COOKIE["session"]) || $_COOKIE["session"] != "admin")
+ if(!isset($_COOKIE["session"]) && $_COOKIE["session"] != "admin")
  {
      alert("Kamu Harus Login Sebagai Admin!");
      location("login");
@@ -19,8 +19,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" type="image/png" sizes="16x16" href="../plugins/images/favicon.png">
-    <title>Ample Admin Template - The Ultimate Multipurpose admin template</title>
+    <title><?php echo ucwords(str_replace("_", " ", $this->uri->segment(2))); ?></title>
     <script src="../jquery-ui/external/jquery/jquery.js"></script>
     <link rel="stylesheet" type="text/css" href="../jquery-ui/jquery-ui.css">
     <script src="../jquery-ui/jquery-ui.min.js"></script>

@@ -1,4 +1,4 @@
-<?php include 'header.php'; ?>
+<?php include 'header_user.php'; ?>
 
 <body class="fix-header">
     <div id="wrapper">

@@ -1,4 +1,4 @@
-<?php include 'header.php'; ?>
+<?php include 'header_user.php'; ?>
 <?php include "menu_admin.php" ?>
 
 <body class="fix-header">
