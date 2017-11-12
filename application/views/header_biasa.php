@@ -1,4 +1,14 @@
-<?php ob_start(); ?>
+<?php 
+
+ if(isset($_COOKIE["session"]))
+ {
+	 setcookie("session", "", time() - 1, "/");
+	 setcookie("username", "", time() - 1, "/");
+ }
+ 
+
+ ?>
+
 <!DOCTYPE html>
 <html lang="en">
 

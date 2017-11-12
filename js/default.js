@@ -9,10 +9,11 @@ $(document).ready(function(){
 		var input = $(this).val().toLowerCase();
 
 		for(i = 0; i <= $(".filter_data tr").length; i++){
-			if($(".filter_data tr").eq(i).toLowerCase().indexOf(input) > -1){
+			if($(".filter_data tr").eq(i).text().toLowerCase().indexOf(input) > -1){
 				$(".filter_data tr").eq(i).show();
 			}else{
 				$(".filter_data tr").eq(i).hide();
+				$(".filter_data tr").eq(0).show();
 			}
 		}
 	})
@@ -22,6 +23,6 @@ $(document).ready(function(){
 		dateFormat: "dd-MM-yy",
 		changeMonth: true,
 		changeYear: true,
-		yearRange: "-20y:c"
+		yearRange: "-60y:c"
 	});
 })

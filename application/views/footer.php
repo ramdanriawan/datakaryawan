@@ -18,3 +18,27 @@
 </body>
 
 </html>
+
+<?php 
+
+if($_GET["toggle_edit"])
+{
+    $this->db->update("tbl_toggle_edit", array("toggle_edit" => $_GET["toggle_edit"]));
+    alert("Berhasil Melakukan Toggle Edit");
+    location($this->uri->segment(2));
+}
+
+if($_GET["media"] == "delete")
+{
+    $tables = array("tbl_profile_pegawai", "tbl_pegawai", "tbl_keluarga", "tbl_login", "tbl_sekolah", "tbl_pendidikan");
+    $this->db->where("username", $_GET["username"]);
+    
+    if($this->db->delete($tables))
+    {
+        alert("Berhasil Mendelete Semua Data Table Dengan username $_GET[username]");
+        location($this->uri->segment(2));
+    }
+}
+
+
+ ?>

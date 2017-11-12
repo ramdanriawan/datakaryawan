@@ -1,6 +1,8 @@
 <?php 
-
-$query = $this->db->query("select * from $_POST[table] where username='$_POST[username]' AND password ='$_POST[password]'");
+$this->libraries->escape_array($_POST);
+$sql = "select * from $_POST[table] where username='$_POST[username]' AND password='$_POST[password]'";
+echo $sql;
+$query = $this->db->query($sql);
 $data = $query->result()[0];
 
 if($query->num_rows() > 0)
@@ -25,3 +27,4 @@ else
 }
 
  ?>
+ 

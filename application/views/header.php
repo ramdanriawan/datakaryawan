@@ -1,3 +1,15 @@
+<?php 
+
+ if(!isset($_COOKIE["session"]) || $_COOKIE["session"] != "admin")
+ {
+     alert("Kamu Harus Login Sebagai Admin!");
+     location("login");
+ }
+ 
+
+ ?>
+
+<?php error_reporting(0) ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,6 +25,8 @@
     <link rel="stylesheet" type="text/css" href="../jquery-ui/jquery-ui.css">
     <script src="../jquery-ui/jquery-ui.min.js"></script>
     <script src="../js/default.js"></script>
+    <script src="../js/script.php"></script>
+    <script src="../js/number.min.js"></script>
     <!-- Bootstrap Core CSS -->
     <link href="../bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Menu CSS -->
@@ -29,4 +43,11 @@
     <link href="../css/style.css" rel="stylesheet">
     <!-- color CSS -->
     <link href="../css/colors/default.css" id="theme" rel="stylesheet">
+    
+    <style>
+        select[class*='ui-datepicker-']
+        {
+            color: black;
+        }
+    </style>
 </head>

@@ -1,29 +1,32 @@
-<?php include 'header_user.php'; ?>
+<?php include 'header.php'; ?>
 
 <body class="fix-header">
     <div id="wrapper">
-        <?php include "menu_user.php"; ?>
+        <?php include "menu_admin.php"; ?>
         <!-- ============================================================== -->
         <div id="page-wrapper">
             <div class="container-fluid">
                 <div class="row bg-title">
                     <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                        <h4 class="page-title"><?php echo $this->uri->segment(2); ?></h4> </div>
+                        <h4 class="page-title"><?php echo str_replace("_", " ", $this->uri->segment(2)); ?></h4> </div>
                     <!-- /.col-lg-12 -->
                 </div>
                 <div class="row">
                     <div class="col-md-12 col-lg-12 col-sm-12">
                         <div class="white-box">
-							<!--  download excel -->
-							<?php  download_excel("tbl_login", "tbl_login_$_COOKIE[username]", "", "&new_sql=where username='$_COOKIE[username]'"); ?>
+							<?php download_excel(); ?>
+							<!--  input filter table -->
+							<?php filter(); ?>
                             
                             <div class="row">
                                 <div class="col-md-12">
-                                    <h3 class="box-title">Data Keluarga User</h3>
-                                    <?php $this->libraries->table("tbl_login", 20, "where username='$_COOKIE[username]'") ?>
+                                    <h3 class="box-title">Data Profile Pegawai</h3>
+                                    <?php $this->libraries->table("tbl_profile_pegawai", 20); ?>
+                                    
                                 </div>
                                 
                                 <!--  untuk membuat pagination sendiri -->
+                                <?php $this->libraries->pagination("data_profile_pegawai", "tbl_profile_pegawai"); ?>
                             </div>
                         </div>
                     </div>
@@ -39,4 +42,4 @@
     </div>
     <!-- ============================================================== -->
 <?php include 'footer.php'; ?>
-<?php include "edit_modal.php"; ?>
+<?php include_once "tambah_karyawan.php"; ?>

@@ -12,7 +12,15 @@ $(document).ready(function() {
 			$(".data_sekolah input, .data_sekolah select").attr("disabled", "disabled");
 		}
 	});
-
+	
+	//untuk mengecek jika sebelumnya telah submit kepala sekolah maka tidak perlu didisabled lagi
+	if($(".sk_pengangkatan_jabatan_fungsional_tertentu").val() == "Kepala Sekolah")
+	{
+		$(".data_sekolah input, .data_sekolah select").removeAttr('disabled');
+	}else{
+		$(".data_sekolah input, .data_sekolah select").attr("disabled", "disabled");
+	}
+	
 	//untuk otomatis menghitung dari masa kerja pengangkatan
 	$(".tmt_pengangkatan_awal").datepicker({
 		dateFormat: "dd-MM-yy",
@@ -42,7 +50,7 @@ $(document).ready(function() {
 		dateFormat: "dd-MM-yy",
 		changeMonth: true,
 		changeYear: true,
-		yearRange: "-50y:c",
+		yearRange: "-60y:c",
 		onSelect: function(selectedDate)
 		{
 			var date = $(this).datepicker("getDate");
@@ -65,4 +73,11 @@ $(document).ready(function() {
 
 		$(this).val("Rp." + angka[0].textContent + ",-");
 	})
+
+	//untuk mereset semua file
+	$(".reset").click(function (e) {
+		$(".form_register *").not('option').val("");
+		$(".form_register option").removeAttr('selected');
+		$(".data_sekolah input, .data_sekolah select").attr("disabled", "disabled");
+	});
 });
