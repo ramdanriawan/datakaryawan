@@ -1,3 +1,5 @@
-<?php
-echo $_GET["cari"];
-?>
+<?php 
+
+console_log("woke");
+
+ ?>

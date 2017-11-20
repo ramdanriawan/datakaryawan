@@ -1,5 +1,5 @@
 <?php 
-class libraries
+class Libraries
 {
 	protected $CI;
 	

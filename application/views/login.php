@@ -1,6 +1,7 @@
 <?php error_reporting(0); ?>
 <?php include 'header_biasa.php'; ?>
 
+
 <div class="container">
 	<div class="">
 		<div class="col-md-6 col-md-offset-3">
@@ -60,7 +61,7 @@
 if($_COOKIE["pesan_insert"])
 {
 	echo "<script>alert('$_COOKIE[pesan_insert]');</script>";
-	setcookie("pesan_insert", "", time() - 1, "");
+	setcookie("pesan_insert", "", time() - 1, "/");
 }
 
  ?>

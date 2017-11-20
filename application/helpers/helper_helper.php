@@ -77,6 +77,11 @@ function input($label, $class = "form-control", $name, $type = "text", $required
 EOD;
 }
 
+function console_log($console_log)
+{
+	echo "<script>console.log('$console_log');</script>";
+}
+
 function select($class, $name, $required, $label, $selected = "")
 {
 	echo "<select class='$class' name='$name' $required>";

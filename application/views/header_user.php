@@ -1,4 +1,4 @@
-<?php error_reporting(0) ?>
+<?php error_reporting() ?>
 <?php
 
  if(!isset($_COOKIE["session"]) && $_COOKIE["session"] != "user")
@@ -20,6 +20,11 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <title><?php echo ucwords(str_replace("_", " ", $this->uri->segment(2))); ?></title>
+    <style type="text/css">
+        select[class*='ui-datepicker']{
+            color: black;
+        }
+    </style>
     <script src="../jquery-ui/external/jquery/jquery.js"></script>
     <link rel="stylesheet" type="text/css" href="../jquery-ui/jquery-ui.css">
     <script src="../jquery-ui/jquery-ui.min.js"></script>

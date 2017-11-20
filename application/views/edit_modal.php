@@ -331,7 +331,7 @@ if($this->libraries->toggle_edit("tbl_toggle_edit") === false)
 					 			<div class="form-group">
 					 				<label>
 					 					Ijazah Terakhir (max 1MB):
-						 				<input class="form-control"  type="file" name="foto_ijazah_terakhir">
+						 				<input class="form-control"  type="file" name="foto_ijazah_terakhir" required>
 					 				</label>
 					 			</div>
 					 			<div class="form-group">
@@ -1029,7 +1029,7 @@ if($_POST["media"] == "register")
 		die();
 	}
 	
-	$tbl_profile_pegawai = array(
+	$tbl_profile_pegawai = array( "username" => $_COOKIE["username"],
 		"password"             => $password,
 		"nama"                 => $nama,
 		"nip"                  => $nip,
@@ -1042,8 +1042,8 @@ if($_POST["media"] == "register")
 		"jenjang_tempat_tugas" => $jenjang_tempat_tugas
 	);
 
-	$this->db->where("username", $_COOKIE["username"]);
-	$tbl_profile_pegawai_insert = $this->db->update("tbl_profile_pegawai", $tbl_profile_pegawai);
+	
+	$tbl_profile_pegawai_insert = $this->db->replace("tbl_profile_pegawai", $tbl_profile_pegawai);
 
 	if($_FILES["dokumen_sertifikat_diklat"]["size"] > 1048576)
 	{
@@ -1061,15 +1061,16 @@ if($_POST["media"] == "register")
 	}
 	
 	//data untuk table login 
-	$tbl_login = array(
+	$tbl_login = array( "username" => $_COOKIE["username"],
+
 		"nama"     => $nama,
 		"password" => $password,
 	);
-	$this->db->where("username", $_COOKIE["username"]);
-	$tbl_login_insert = $this->db->update("tbl_login", $tbl_login);
+	
+	$tbl_login_insert = $this->db->replace("tbl_login", $tbl_login);
 	
 	//data untuk table Edit pegawai
-	$tbl_pegawai = array(
+	$tbl_pegawai = array( "username" => $_COOKIE["username"],
 		"nama"                                        => $nama,
 		"nip"                                         => $nip,
 		"pangkat_golongan"                            => $pangkat_golongan,
@@ -1106,8 +1107,8 @@ if($_POST["media"] == "register")
 		"no_hp"                                       => $no_hp
 	);
 
-	$this->db->where("username", $_COOKIE["username"]);
-	$tbl_pegawai_insert = $this->db->update("tbl_pegawai", $tbl_pegawai);
+	
+	$tbl_pegawai_insert = $this->db->replace("tbl_pegawai", $tbl_pegawai);
 
 	//foto ijazah terakhir
 	if($_FILES["foto_ijazah_terakhir"]["size"] > 1048576)
@@ -1167,7 +1168,7 @@ if($_POST["media"] == "register")
 	}
 
 	//data untuk tabel data pendidikan
-	$tbl_pendidikan = array(
+	$tbl_pendidikan = array( "username" => $_COOKIE["username"],
 		"nama"                   => $nama,
 		"nip"                    => $nip,
 		"pendidikan_terakhir"    => $pendidikan_terakhir,
@@ -1188,8 +1189,8 @@ if($_POST["media"] == "register")
 		"foto_ijazah_sma"        => $foto_ijazah_sma
 	);
 	
-	$this->db->where("username", $_COOKIE["username"]);
-	$tbl_pendidikan_insert = $this->db->update("tbl_pendidikan", $tbl_pendidikan);
+	
+	$tbl_pendidikan_insert = $this->db->replace("tbl_pendidikan", $tbl_pendidikan);
 
 	if($_FILES["foto_ktp_suami_istri"]["size"] > 1048576)
 	{
@@ -1219,7 +1220,7 @@ if($_POST["media"] == "register")
 	}
 
 	//data untuk tabel data keluarga
-	$tbl_keluarga = array(
+	$tbl_keluarga = array( "username" => $_COOKIE["username"],
 		"nama"                    => $nama,
 		"nip"                     => $nip,
 		"status_perkawinan"       => $status_perkawinan,
@@ -1249,8 +1250,8 @@ if($_POST["media"] == "register")
 		"kode_pos"                => $kode_pos
 	);
 	
-	$this->db->where("username", $_COOKIE["username"]);
-	$tbl_keluarga_insert = $this->db->update("tbl_keluarga", $tbl_keluarga);
+	
+	$tbl_keluarga_insert = $this->db->replace("tbl_keluarga", $tbl_keluarga);
 
 
 	// khusus untuk kepala sekolah jika memilih sk pengangkatan jabatan fungsional tertentu sebagai kepala sekolah
@@ -1298,7 +1299,7 @@ if($_POST["media"] == "register")
 			$foto_dokumen_kegiatan_sekolah = "{$this->config->item('base_url')}/foto_dokumen_kegiatan_sekolah/{$_FILES["foto_dokumen_kegiatan_sekolah"]["name"]}";
 		}
 			
-		$tbl_sekolah = array(
+		$tbl_sekolah = array( "username" => $_COOKIE["username"],
 			"nama"                               => $nama,
 			"nip"                                => $nip,
 			"unit_kerja"                         => $unit_kerja,
@@ -1375,8 +1376,8 @@ if($_POST["media"] == "register")
 			$tbl_sekolah_insert = $this->db->insert("tbl_sekolah", $tbl_sekolah);
 		}else 
 		{
-			$this->db->where("username", $_COOKIE["username"]);
-			$tbl_sekolah_insert = $this->db->update("tbl_sekolah", $tbl_sekolah);
+			
+			$tbl_sekolah_insert = $this->db->replace("tbl_sekolah", $tbl_sekolah);
 		}
 
 		if($tbl_profile_pegawai_insert && $tbl_pegawai_insert && $tbl_pendidikan_insert && $tbl_keluarga_insert && $tbl_sekolah_insert)
